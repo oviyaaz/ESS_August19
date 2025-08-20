@@ -9,6 +9,8 @@ import { LayoutDashboardIcon, Users, Package } from "lucide-react";
 import SuperAdminPurchaseHome from "./dashboards/SuperAdmin/SuperAdminPurchaseHome";
 import SuperAdminPurchasedIcons from "./dashboards/SuperAdmin/SuperAdminPurchasedIcons";
 import SuperAdminDashboard from "./dashboards/SuperAdmin/SuperAdminDashboard";
+import UserManagement from "./dashboards/SuperAdmin/UserManagement";
+import HRMSScreen from "./dashboards/SuperAdmin/HRMSScreen";
 
 // Example: Sidebar links for Admin
 const adminLinks = [
@@ -39,6 +41,8 @@ function App() {
         {/* <Route index element={<SuperAdminPurchaseHome />} /> */}
         <Route path="purchased-icons" element={<SuperAdminPurchasedIcons />} />
         <Route path="icons" element={<SuperAdminPurchaseHome />} />
+        <Route path="user-management" element={<UserManagement />} />
+        <Route path="hrms" element={<HRMSScreen />} />
       </Route>
 
       <Route path="/officer" element={<OfficerDashboard />} />

@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const apiBaseUrl = import.meta.env.VITE_BASE_API;
 
-const SuperAdminPurchasedIcons = ({ onNavigateToFeature }) => {
+const SuperAdminPurchasedIcons = () => {
   const [selectedFeatures, setSelectedFeatures] = useState(['User-Management', 'HRMS']);
   const [loading, setLoading] = useState(false);
   const [userInfo, setUserInfo] = useState(JSON.parse(sessionStorage.getItem("userdata")));
@@ -21,10 +21,19 @@ const SuperAdminPurchasedIcons = ({ onNavigateToFeature }) => {
     navigate("/superadmin/icons");
   };
 
-  const handleFeatureClick = (featureName) => {
-    console.log(`Navigating to ${featureName} feature...`);
-    onNavigateToFeature(featureName);
+ const handleFeatureClick = (featureName) => {
+  const routeMap = {
+    "User-Management": "/superadmin/user-management",
+    "HRMS": "/superadmin/hrms",
   };
+
+  if (routeMap[featureName]) {
+    navigate(routeMap[featureName]);
+  } else {
+    console.warn("No route defined for feature:", featureName);
+  }
+};
+
 
   if (loading) {
     return (
