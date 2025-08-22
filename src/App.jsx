@@ -10,7 +10,7 @@ import SuperAdminPurchaseHome from "./dashboards/SuperAdmin/SuperAdminPurchaseHo
 import SuperAdminPurchasedIcons from "./dashboards/SuperAdmin/SuperAdminPurchasedIcons";
 import SuperAdminDashboard from "./dashboards/SuperAdmin/SuperAdminDashboard";
 import UserManagement from "./dashboards/SuperAdmin/UserManagement";
-import HRMSScreen from "./dashboards/SuperAdmin/HRMSScreen";
+import HRMSScreen from "./dashboards/SuperAdmin/HRMS/HRMSScreen";
 
 // Example: Sidebar links for Admin
 const adminLinks = [
