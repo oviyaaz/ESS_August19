@@ -34,7 +34,7 @@ const DailyCheckInOut = () => {
                   record.out_status?.toLowerCase().includes("on time") ? "present" :
                   "absent",
           lateBy: record.out_status?.toLowerCase() === "late" ? record.time_in : null,
-          location: { address: "N/A" } // replace with actual location if available
+          location: record.location|| "N/A",
         })) || [];
 
         setAttendanceData(data);
@@ -195,7 +195,8 @@ const DailyCheckInOut = () => {
                   <td className="px-6 py-4 whitespace-nowrap">{employee.checkIn || "Not checked in"}</td>
                   <td className="px-6 py-4 whitespace-nowrap">{employee.checkOut || "Not checked out"}</td>
                   <td className="px-6 py-4 whitespace-nowrap">{employee.workingHours || "00:00:00"}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{employee.location?.address || "No location"}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">{employee.location || "No location"}</td>
+
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <div className="flex space-x-2">
                       {!employee.checkIn && (
