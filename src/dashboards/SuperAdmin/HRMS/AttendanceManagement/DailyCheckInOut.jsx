@@ -17,7 +17,7 @@ const DailyCheckInOut = () => {
       try {
         setLoading(true);
         const response = await axios.get(`${apiBaseUrl}/user/all-user-attendance-history`, {
-          params: { date: selectedDate }
+          params: { from_date: selectedDate, to_date: selectedDate }
         });
 
         // Map API response to table data structure
@@ -30,9 +30,12 @@ const DailyCheckInOut = () => {
           checkIn: record.time_in || null,
           checkOut: record.time_out || null,
           workingHours: record.total_working_hours || "00:00:00",
-          status: record.out_status?.toLowerCase().includes("late") ? "late" :
-                  record.out_status?.toLowerCase().includes("on time") ? "present" :
-                  "absent",
+          status: record.status?.toLowerCase() === 'half day' ? 'half-day' :
+        record.status?.toLowerCase() === 'absent' ? 'absent' :
+        record.out_status?.toLowerCase().includes("late") ? "late" :
+        record.out_status?.toLowerCase().includes("on time") ? "present" :
+        "absent",
+
           lateBy: record.out_status?.toLowerCase() === "late" ? record.time_in : null,
           location: record.location|| "N/A",
         })) || [];
