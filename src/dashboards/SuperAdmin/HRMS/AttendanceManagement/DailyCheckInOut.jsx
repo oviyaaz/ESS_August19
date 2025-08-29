@@ -32,8 +32,8 @@ const DailyCheckInOut = () => {
           workingHours: record.total_working_hours || "00:00:00",
           status: record.status?.toLowerCase() === 'half day' ? 'half-day' :
         record.status?.toLowerCase() === 'absent' ? 'absent' :
-        record.out_status?.toLowerCase().includes("late") ? "late" :
-        record.out_status?.toLowerCase().includes("on time") ? "present" :
+        record.status?.toLowerCase() === 'late' ? 'late' :
+        record.status?.toLowerCase() === 'present' ? 'present' :
         "absent",
 
           lateBy: record.out_status?.toLowerCase() === "late" ? record.time_in : null,
