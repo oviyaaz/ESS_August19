@@ -9,6 +9,7 @@ import {
   Filter,
   ChevronLeft,
   ChevronRight,
+   Clock,
 } from 'lucide-react';
 
 const MonthlyAttendanceSummary = () => {
@@ -22,6 +23,7 @@ const MonthlyAttendanceSummary = () => {
     totalEmployees: 0,
     totalPresent: 0,
     totalAbsent: 0,
+    totalHalfDay: 0,
     totalLate: 0,
     overallAttendanceRate: 0, 
   });
@@ -43,6 +45,7 @@ const MonthlyAttendanceSummary = () => {
           totalEmployees: res1.data.totals.totalEmployees,
           totalPresent: res1.data.totals.totalPresent,
           totalAbsent: res1.data.totals.totalAbsent,
+          totalHalfDay: res1.data.totals.totalHalfDays || 0, 
           totalLate: res1.data.totals.totalLate,
           overallAttendanceRate: res1.data.totals.overallAttendanceRate, 
         });
@@ -154,6 +157,16 @@ const MonthlyAttendanceSummary = () => {
             <TrendingDown className="h-8 w-8 text-red-500" />
           </div>
         </div>
+          {/* Half Day */}
+  <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+    <div className="flex items-center justify-between">
+      <div>
+        <p className="text-sm font-medium text-blue-600">Half Day</p>
+        <p className="text-3xl font-bold text-blue-900">{totals.totalHalfDay}</p>
+      </div>
+      <Clock className="h-8 w-8 text-blue-500" />
+    </div>
+  </div>
 
         <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
           <div className="flex items-center justify-between">
