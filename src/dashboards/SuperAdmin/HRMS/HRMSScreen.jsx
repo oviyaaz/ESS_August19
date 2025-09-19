@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import AttendanceManagementScreen from './AttendanceManagement/AttendanceManagementScreen';
-import LeaveManagementScreen from './LeaveManagement/LeaveManagementScreen';
-import PayrollManagementScreen from './PayrollManagement/PayrollManagementScreen';
+
 
 const HRMSScreen = () => {
   const [activeTab, setActiveTab] = useState('attendance');
